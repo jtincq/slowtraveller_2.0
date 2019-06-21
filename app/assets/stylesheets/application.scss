@@ -13,19 +13,8 @@
 @import "pages/index";
 
 body {
-    background-color: rgb(241, 155, 66); /* For browsers that do not support gradients */
-    background-image: linear-gradient(to bottom right, rgb(251, 181, 34), rgb(240, 86, 2));
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    .image-background {
-      z-index: -1;
-      margin-left: -38%;
-      width: 176%;
-      position: fixed;
-      bottom: -10%;
-      }
+    background-color: $orange; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, $light-orange, $dark-orange);
 }
 
 h1 {

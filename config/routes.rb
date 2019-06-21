@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'destinations/home'
-  get 'destinations/index'
-  get 'destinations/show'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'destinations#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

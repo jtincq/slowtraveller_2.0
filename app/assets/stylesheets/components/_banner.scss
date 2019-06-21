@@ -1,4 +1,6 @@
 .search-banner {
+  display : grid;
+  grid-template-columns: 1fr 1fr 1fr;
   h1 {
     color: white;
   }
@@ -6,6 +8,26 @@
     font-family: $body-font;
     color: white;
     font-weight: 100;
+  }
+}
+
+// Responsiveness
+// --> Medium device (landscape tablets)
+@media (max-width: 960px) {
+  .search-banner {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+// --> Small devices (portrait tablets and large phones)
+@media (max-width: 720px) {
+  .search-banner {
+    grid-template-columns: 1fr;
+  }
+}
+// --> Extra small devices (phones)
+@media (max-width: 540px) {
+  .search-banner {
+    grid-template-columns: 1fr;
   }
 }
 

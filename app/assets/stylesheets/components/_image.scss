@@ -1,0 +1,45 @@
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  padding-left: 30px;
+}
+
+#traveller-image {
+  width: 300px;
+  justify-self: center;
+}
+
+#board-image {
+  width: 250px;
+  justify-self: center;
+}
+
+// Responsiveness
+// --> Medium device (landscape tablets)
+@media (max-width: 960px) {
+  #traveller-image {
+    width: 200px;
+  }
+  #board-image {
+    width: 150px;
+  }
+}
+// --> Small devices (portrait tablets and large phones)
+@media (max-width: 720px) {
+  #traveller-image {
+    width: 70%;
+    }
+  #board-image {
+    width: 30%;
+  }
+}
+// --> Extra small devices (phones)
+@media (max-width: 540px) {
+  #traveller-image {
+    width: 70%;
+    }
+  #board-image {
+    width: 30%;
+  }
+}

@@ -8,10 +8,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
+// CSS partials
 @import "components/index";
 @import "pages/index";
 
+// Main CSS
 body {
     background-color: $orange; /* For browsers that do not support gradients */
     background-image: linear-gradient(to bottom right, $light-orange, $dark-orange);
@@ -34,6 +35,26 @@ p {
 }
 
 .main-container {
-  width: 1000px;
+  width: 900px;
   margin: 0 auto;
+}
+
+// Responsiveness
+// --> Medium device (landscape tablets)
+@media (max-width: 960px) {
+  .main-container {
+    width: 700px;
+  }
+}
+// --> Small devices (portrait tablets and large phones)
+@media (max-width: 720px) {
+  .main-container {
+    width: 500px;
+  }
+}
+// --> Extra small devices (phones)
+@media (max-width: 540px) {
+  .main-container {
+    width: 300px;
+  }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_194043) do
+ActiveRecord::Schema.define(version: 2019_06_22_224409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_06_22_194043) do
     t.string "photo_medium_three"
     t.string "long_description"
     t.string "url_destination"
+    t.string "wikipedia_url"
   end
 
   create_table "labels", force: :cascade do |t|

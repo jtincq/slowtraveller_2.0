@@ -1,3 +1,4 @@
+# Create a list of countries based on the api Triposo's list of countries
 require 'json'
 require 'open-uri'
 
@@ -19,15 +20,8 @@ urls.each do |url|
   end
 end
 
-["Guernsey", "Lebanon", "Lesotho", "Malaysia", "Turks_and_Caicos_Islands"].each do |c|
+["Guernsey", "Lebanon", "Lesotho", "Malaysia"].each do |c|
   COUNTRIES << c
 end
 
 COUNTRIES
-puts COUNTRIES.count
-# Georgia --> renommée parce que s'appelle Georgia_28country29
-# China --> renommée parce que s'appelle People27s_Republic_of_China
-# Réunion --> renommée parce que s'appelle RC3A9union
-# Sao Tome and Principe --> renommée parce que 'sappelle SC3A3o_TomC3A9_and_PrC3ADncipe
-# Saint Barthelemy --> renommée parce que s'appelle Saint_BarthC3A9lemy
-# Burma --> ajouter (Myanmar)

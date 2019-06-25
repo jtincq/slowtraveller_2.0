@@ -1,0 +1,38 @@
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+
+#traveller-image {
+  width: 250px;
+}
+
+#board-image {
+  width: 200px;
+  margin: 0 0 30px 10px;
+}
+
+// Responsiveness
+// --> Medium device (landscape tablets)
+@media (max-width: 960px) {
+  .images {
+    grid-template-columns: 1fr;
+  }
+  #traveller-image {
+    width: 100%;
+  }
+  #board-image {
+    display: none;
+  }
+}
+// --> Small devices (portrait tablets and large phones)
+@media (max-width: 720px) {
+  #traveller-image {
+    display: none;
+  }
+}
+// --> Extra small devices (phones)
+@media (max-width: 540px) {
+
+}

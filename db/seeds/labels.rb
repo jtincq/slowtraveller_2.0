@@ -30,7 +30,7 @@ Destination.all[0..1500].each do |dest|
   count += 1
 end
 
-sleep 30 # need a break to avoid error 420
+sleep 30 # need a break to avoid error 429
 
 Destination.all[1501..3000].each do |dest|
   puts "Second round"
@@ -39,7 +39,7 @@ Destination.all[1501..3000].each do |dest|
   count += 1
 end
 
-sleep 30 # need a break to avoid error 420
+sleep 30 # need a break to avoid error 429
 
 Destination.all[3001..-1].each do |dest|
   puts "Third round"

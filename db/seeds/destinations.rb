@@ -2,7 +2,8 @@ require 'json'
 require 'open-uri'
 require_relative 'countries'
 
-puts "Destroy destinations"
+puts "Destroy destinations and labels"
+Label.destroy_all
 Destination.destroy_all
 
 def save_images(destination, destination_created)

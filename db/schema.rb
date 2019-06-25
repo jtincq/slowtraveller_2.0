@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_090658) do
+ActiveRecord::Schema.define(version: 2019_06_25_140749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,24 @@ ActiveRecord::Schema.define(version: 2019_06_21_090658) do
     t.string "name"
     t.string "description"
     t.string "country"
-    t.string "photo_small"
-    t.string "photo_medium"
-    t.string "category"
-    t.integer "score"
+    t.float "score"
     t.float "lat"
     t.float "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "long_description"
+    t.string "wikipedia_url"
+    t.text "photo_small", default: [], array: true
+    t.text "photo_medium", default: [], array: true
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.string "tag"
+    t.float "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_labels_on_destination_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +51,5 @@ ActiveRecord::Schema.define(version: 2019_06_21_090658) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "labels", "destinations"
 end

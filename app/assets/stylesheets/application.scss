@@ -19,13 +19,17 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 110px;
   font-weight: bold;
+  line-height: 1;
 }
 
 h2 {
   font-size: 45px;
-  font-weight: bold;
+}
+
+h3 {
+  font-size: 30px;
 }
 
 p {
@@ -45,16 +49,25 @@ p {
   .main-container {
     width: 700px;
   }
+  h1 {
+  font-size: 100px;
+  }
 }
 // --> Small devices (portrait tablets and large phones)
 @media (max-width: 720px) {
   .main-container {
     width: 500px;
   }
+  h1 {
+  font-size: 90px;
+  }
 }
 // --> Extra small devices (phones)
 @media (max-width: 540px) {
   .main-container {
     width: 300px;
+  }
+  h1 {
+  font-size: 80px;
   }
 }

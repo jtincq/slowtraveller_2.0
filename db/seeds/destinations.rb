@@ -7,38 +7,21 @@ Label.destroy_all
 Destination.destroy_all
 
 def save_images(destination, destination_created)
-  if destination["images"].size > 2 && destination["images"][2]["sizes"].has_key?("original")
-    destination_created.photo_small = destination["images"][0]["sizes"]["thumbnail"]["url"]
-    destination_created.photo_medium_one = destination["images"][0]["sizes"]["medium"]["url"]
-    destination_created.photo_medium_two = destination["images"][1]["sizes"]["medium"]["url"] unless destination["images"][1]["sizes"]["medium"].nil?
-    destination_created.photo_medium_three = destination["images"][2]["sizes"]["medium"]["url"] unless destination["images"][2]["sizes"]["medium"].nil?
-    destination_created.save
-  elsif destination["images"].size > 1 && destination["images"][1]["sizes"].has_key?("original")
-    destination_created.photo_small = destination["images"][0]["sizes"]["thumbnail"]["url"]
-    destination_created.photo_medium_one = destination["images"][0]["sizes"]["medium"]["url"]
-    destination_created.photo_medium_two = destination["images"][1]["sizes"]["medium"]["url"] unless destination["images"][1]["sizes"]["medium"].nil?
-    destination_created.save
-  elsif destination["images"].size.positive? && destination["images"][0]["sizes"].has_key?("original")
-    destination_created.photo_small = destination["images"][0]["sizes"]["thumbnail"]["url"]
-    destination_created.photo_medium_one = destination["images"][0]["sizes"]["medium"]["url"]
-    destination_created.save
-  else
-    puts "No pictures for #{destination_created.name}"
+  destination["images"].each do |image|
+    image_small_url = image['sizes']['thumbnail']['url'] if image["sizes"]["thumbnail"]
+    destination_created.photo_small << "{#{image_small_url}}"
+    image_medium_url = image["sizes"]["medium"]["url"] if image["sizes"]["medium"]
+    destination_created.photo_medium << "{#{image_medium_url}}"
   end
+  destination_created.save
 end
 
 def find_source_url(destination, destination_created)
-  if destination["attribution"][0]["source_id"] == "wikipedia"
-    destination_created.wikipedia_url = destination["attribution"][0]["url"]
-    destination_created.save
-  elsif destination["attribution"].size > 1 && destination["attribution"][1]["source_id"] == "wikipedia"
-    destination_created.wikipedia_url = destination["attribution"][1]["url"]
-    destination_created.save
-  elsif destination["attribution"].size > 2 && destination["attribution"][2]["source_id"] == "wikipedia"
-    destination_created.wikipedia_url = destination["attribution"][2]["url"]
-    destination_created.save
-  else
-    puts "No wiki url for #{destination_created.name}"
+  destination["attribution"].each do |attribution|
+    if attribution["source_id"] == "wikipedia"
+      destination_created.wikipedia_url = attribution["url"]
+      destination_created.save
+    end
   end
 end
 
@@ -49,9 +32,8 @@ def create_destinations(destination)
   score: destination["score"],
   lat: destination["coordinates"]["latitude"],
   lng: destination["coordinates"]["longitude"],
-  country: destination["country_id"].split("_").join(" ")
+  country: destination["country_id"].split("_").join(" "),
   )
-
   find_source_url(destination, destination_created)
   save_images(destination, destination_created)
 end

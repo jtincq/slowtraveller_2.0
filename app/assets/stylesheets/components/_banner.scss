@@ -1,0 +1,46 @@
+.search-banner {
+  display : grid;
+  grid-template-columns: 1fr 1fr;
+  h1 {
+    color: white;
+  }
+  h3 {
+    font-family: $body-font;
+    color: white;
+    font-weight: 100;
+  }
+  .search-container {
+  // Style for search container
+  }
+  .search-title {
+  // Style for search title
+  }
+  .search-form {
+    background-color: $yellow;
+    padding: 15px 5px;
+    margin-top: 30px;
+    border-radius: 5px;
+    width: 300px;
+    height: 245px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
+// Responsiveness
+// --> Medium device (landscape tablets)
+@media (max-width: 960px) {
+  .search-banner {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+// --> Small devices (portrait tablets and large phones)
+@media (max-width: 720px) {
+  .search-banner {
+    grid-template-columns: 1fr;
+  }
+}
+// --> Extra small devices (phones)
+@media (max-width: 540px) {
+
+}
+

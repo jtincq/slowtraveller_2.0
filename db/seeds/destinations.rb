@@ -76,7 +76,7 @@ islands.each do |island|
 end
 
 puts "Create label 'island' for the islands' destination"
-Destination.all do |dest|
+Destination.all.each do |dest|
   Label.create!(
     destination_id: dest.id,
     tag: "island",

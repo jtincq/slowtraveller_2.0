@@ -36,3 +36,4 @@ Destination.all[0..1500].each do |dest|
 end
 
 puts "Wait 1 hour before rake next label seed"
+puts Time.now

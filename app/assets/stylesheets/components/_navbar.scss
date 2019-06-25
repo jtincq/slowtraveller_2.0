@@ -1,7 +1,18 @@
 .navbar-slowtraveller {
   justify-content: space-between;
+  margin-bottom: 20px;
   h3 {
     color: white;
+  }
+  .navbar-item {
+    margin: 0 18px;
+    border-bottom: 2px solid white;
+  }
+  .link {
+  color: white;
+  font-weight: 300;
+  margin-bottom: 15px;
+  font-size: 18px;
   }
 }
 

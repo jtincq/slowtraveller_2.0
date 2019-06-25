@@ -12,15 +12,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav float-right">
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Travel Diary", "#", class: "nav-link" %>
+        <li class="navbar-item">
+          <%= link_to "Travel Diary", "#", class: "link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <li class="navbar-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link" %>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="navbar-item">
+          <%= link_to "Login", new_user_session_path, class: "link" %>
         </li>
       <% end %>
     </ul>

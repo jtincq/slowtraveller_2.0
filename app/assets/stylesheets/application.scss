@@ -14,8 +14,10 @@
 
 // Main CSS
 body {
-    background-color: $orange; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to bottom right, $light-orange, $dark-orange);
+  background-color: $orange; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, $light-orange, $dark-orange);
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
 }
 
 h1 {

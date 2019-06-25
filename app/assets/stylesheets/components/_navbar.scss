@@ -1,11 +1,10 @@
-.navbar-lewagon {
+.navbar-slowtraveller {
   justify-content: space-between;
+  h3 {
+    color: white;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-slowtraveller .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }

@@ -22,7 +22,22 @@ def save_images(destination, destination_created)
     destination_created.photo_medium_one = destination["images"][0]["sizes"]["medium"]["url"]
     destination_created.save
   else
-    puts "No pictures"
+    puts "No pictures for #{destination_created.name}"
+  end
+end
+
+def find_source_url(destination, destination_created)
+  if destination["attribution"][0]["source_id"] == "wikipedia"
+    destination_created.wikipedia_url = destination["attribution"][0]["url"]
+    destination_created.save
+  elsif destination["attribution"].size > 1 && destination["attribution"][1]["source_id"] == "wikipedia"
+    destination_created.wikipedia_url = destination["attribution"][1]["url"]
+    destination_created.save
+  elsif destination["attribution"].size > 2 && destination["attribution"][2]["source_id"] == "wikipedia"
+    destination_created.wikipedia_url = destination["attribution"][2]["url"]
+    destination_created.save
+  else
+    puts "No wiki url for #{destination_created.name}"
   end
 end
 
@@ -33,10 +48,10 @@ def create_destinations(destination)
   score: destination["score"],
   lat: destination["coordinates"]["latitude"],
   lng: destination["coordinates"]["longitude"],
-  country: destination["country_id"].split("_").join(" "),
-  wikipedia_url: destination["attribution"][0]["url"]
+  country: destination["country_id"].split("_").join(" ")
   )
 
+  find_source_url(destination, destination_created)
   save_images(destination, destination_created)
 end
 

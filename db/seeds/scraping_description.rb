@@ -11,22 +11,26 @@ end
 def scrape_long_description(url)
   html_doc = scrape_wikitravel(url)
 
-  desc = html_doc.search('.mw-parser-output p').first
-  desc.text.strip unless desc.nil?
-end
+  desc = html_doc.search('.mw-parser-output p').first(2)
+  description_array = []
+  desc.each do |d|
+    description_array << d.text.strip unless d.nil?
+  end
 
-def scrape_link_destination_website(url)
-  html_doc = scrape_wikitravel(url)
+  description_array.delete_if { |i| i == " " || i == "" }
 
-  link = html_doc.search('.mw-parser-output p b a').first
-  link_attribute = link.attribute('href') unless link.nil?
-  link_attribute.value unless link_attribute.nil?
+  if description_array.size > 1
+    description_array.join("\n")
+  else
+    description_array.join
+  end
 end
 
 puts "Scraping url and longer description"
 
+puts Time.now
 Destination.all.each do |dest|
   dest.long_description = scrape_long_description(dest.wikipedia_url)
-  dest.url_destination = scrape_link_destination_website(dest.wikipedia_url)
   dest.save
 end
+puts Time.now

@@ -22,7 +22,27 @@ end
 puts "Create label for each destination"
 
 count = 0
-Destination.all.each do |dest|
+
+Destination.all[0..1500].each do |dest|
+  puts "First round"
+  puts count
+  create_label_for_destination(dest)
+  count += 1
+end
+
+sleep 30 # need a break to avoid error 420
+
+Destination.all[1501..3000].each do |dest|
+  puts "Second round"
+  puts count
+  create_label_for_destination(dest)
+  count += 1
+end
+
+sleep 30 # need a break to avoid error 420
+
+Destination.all[3001..-1].each do |dest|
+  puts "Third round"
   puts count
   create_label_for_destination(dest)
   count += 1

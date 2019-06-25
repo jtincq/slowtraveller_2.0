@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
-  padding-left: 30px;
 }
 
 #traveller-image {
@@ -18,28 +17,23 @@
 // Responsiveness
 // --> Medium device (landscape tablets)
 @media (max-width: 960px) {
+  .images {
+    grid-template-columns: 1fr;
+  }
   #traveller-image {
-    width: 200px;
+    width: 100%;
   }
   #board-image {
-    width: 150px;
+    display: none;
   }
 }
 // --> Small devices (portrait tablets and large phones)
 @media (max-width: 720px) {
-  #traveller-image {
-    width: 70%;
-    }
-  #board-image {
-    width: 30%;
-  }
+
 }
 // --> Extra small devices (phones)
 @media (max-width: 540px) {
   #traveller-image {
-    width: 70%;
+    display: none;
     }
-  #board-image {
-    width: 30%;
-  }
 }

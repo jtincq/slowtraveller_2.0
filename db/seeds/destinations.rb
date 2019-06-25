@@ -75,6 +75,15 @@ islands.each do |island|
   create_destinations(island)
 end
 
+puts "Create label 'island' for the islands' destination"
+Destination.all do |dest|
+  Label.create!(
+    destination_id: dest.id,
+    tag: "island",
+    score: dest.score
+  )
+end
+
 puts "Creating individual destinations"
 [
   "https://www.triposo.com/api/20181213/location.json?annotate=trigram:Hong_Kong&trigram=%3E=0.3&count=1#{ENV['TRIPOSO_API_KEY']}",
